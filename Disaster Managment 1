@@ -1,0 +1,761 @@
+
+<html>
+<head>
+    <title>Disaster Managment 1</title>
+    <style>
+        input[type="radio"] {
+            -webkit-appearance: none;
+            appearance: none;
+            border: 2px solid #aaa;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            background: blue; /* Default color for unchecked radio buttons */
+        }
+        input[type="radio"]:checked {
+            background: green; /* Color for correctly answered radio buttons */
+        }
+        input[type="radio"][data-wrong='true']:checked {
+            background: red; /* Color for incorrectly answered radio buttons */
+        }
+
+        /* Style for the submit button */
+        button[type="submit"] {
+            display: block;
+            width: 200px; /* Fixed width */
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: transform 0.3s; /* Add transition for smoother effect */
+        }
+
+        /* Hover effect */
+        button[type="submit"]:hover {
+            background-color: #45a049;
+            transform: scale(1.1); /* Zoom in by 10% */
+        }
+
+        /* Active effect */
+        button[type="submit"]:active {
+            background-color: #4caf50;
+        }
+
+        /* Style for the next button */
+        button[type="button"] {
+            display: none;
+            width: 200px; /* Fixed width */
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 20px;
+            transition: transform 0.3s; /* Add transition for smoother effect */
+        }
+        button[type="button"]:hover {
+            background-color: #45a049;
+            transform: scale(1.1); /* Zoom in by 10% */
+        }
+        button[type="button"]:active {
+            background-color: #4caf50;
+        }
+
+    @keyframes rainbow-wave {
+    0% { color: #ff0000; }
+    1% { color: #ff1900; }
+    2% { color: #ff3200; }
+    3% { color: #ff4b00; }
+    4% { color: #ff6400; }
+    5% { color: #ff7d00; }
+    6% { color: #ff9600; }
+    7% { color: #ffb000; }
+    8% { color: #ffc900; }
+    9% { color: #ffe200; }
+    10% { color: #ffff00; }
+    11% { color: #e2ff00; }
+    12% { color: #c9ff00; }
+    13% { color: #b0ff00; }
+    14% { color: #96ff00; }
+    15% { color: #7dff00; }
+    16% { color: #64ff00; }
+    17% { color: #4bff00; }
+    18% { color: #32ff00; }
+    19% { color: #19ff00; }
+    20% { color: #00ff00; }
+    21% { color: #00ff19; }
+    22% { color: #00ff32; }
+    23% { color: #00ff4b; }
+    24% { color: #00ff64; }
+    25% { color: #00ff7d; }
+    26% { color: #00ff96; }
+    27% { color: #00ffb0; }
+    28% { color: #00ffc9; }
+    29% { color: #00ffe2; }
+    30% { color: #00ffff; }
+    31% { color: #00e2ff; }
+    32% { color: #00c9ff; }
+    33% { color: #00b0ff; }
+    34% { color: #0096ff; }
+    35% { color: #007dff; }
+    36% { color: #0064ff; }
+    37% { color: #004bff; }
+    38% { color: #0032ff; }
+    39% { color: #0019ff; }
+    40% { color: #0000ff; }
+    41% { color: #1900ff; }
+    42% { color: #3200ff; }
+    43% { color: #4b00ff; }
+    44% { color: #6400ff; }
+    45% { color: #7d00ff; }
+    46% { color: #9600ff; }
+    47% { color: #b000ff; }
+    48% { color: #c900ff; }
+    49% { color: #e200ff; }
+    50% { color: #ff00ff; }
+    51% { color: #ff00e2; }
+    52% { color: #ff00c9; }
+    53% { color: #ff00b0; }
+    54% { color: #ff0096; }
+    55% { color: #ff007d; }
+    56% { color: #ff0064; }
+    57% { color: #ff004b; }
+    58% { color: #ff0032; }
+    59% { color: #ff0019; }
+    60% { color: #ff0000; }
+    61% { color: #ff1900; }
+    62% { color: #ff3200; }
+    63% { color: #ff4b00; }
+    64% { color: #ff6400; }
+    65% { color: #ff7d00; }
+    66% { color: #ff9600; }
+    67% { color: #ffb000; }
+    68% { color: #ffc900; }
+    69% { color: #ffe200; }
+    70% { color: #ffff00; }
+    71% { color: #e2ff00; }
+    72% { color: #c9ff00; }
+    73% { color: #b0ff00; }
+    74% { color: #96ff00; }
+    75% { color: #7dff00; }
+    76% { color: #64ff00; }
+    77% { color: #4bff00; }
+    78% { color: #32ff00; }
+    79% { color: #19ff00; }
+    80% { color: #00ff00; }
+    81% { color: #00ff19; }
+    82% { color: #00ff32; }
+    83% { color: #00ff4b; }
+    84% { color: #00ff64; }
+    85% { color: #00ff7d; }
+    86% { color: #00ff96; }
+    87% { color: #00ffb0; }
+    88% { color: #00ffc9; }
+    89% { color: #00ffe2; }
+    90% { color: #00ffff; }
+    91% { color: #00e2ff; }
+    92% { color: #00c9ff; }
+    93% { color: #00b0ff; }
+    94% { color: #0096ff; }
+    95% { color: #007dff; }
+    96% { color: #0064ff; }
+    97% { color: #004bff; }
+    98% { color: #0032ff; }
+    99% { color: #0019ff; }
+    100% { color: #0000ff; }
+    }
+    
+    div {
+        animation: rainbow-wave 5s infinite;
+    }
+    </style>
+</head>
+<body>
+    <h1>Disaster Managment 1</h1>
+    <form id="examForm">
+        <ol>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+            <li>
+                <p>Man-made disasters include:</p>
+                <input type="radio" name="q1" value="a"> a) Wars<br>
+                <input type="radio" name="q1" value="b"> b) Terrorism<br>
+                <input type="radio" name="q1" value="c"> c) Industrial hazard<br>
+                <input type="radio" name="q1" value="d"> d) All of the above<br>
+            </li>
+			
+			
+			<li>
+                <p>2001 Terrorist attack in America is referred as:</p>
+                <input type="radio" name="q2" value="a"> a) 9/11<br>
+                <input type="radio" name="q2" value="b"> b) 11/9<br>
+                <input type="radio" name="q2" value="c"> c) 10/11<br>
+                <input type="radio" name="q2" value="d"> d) 11/01<br>
+            </li>
+			
+			
+			<li>
+                <p>A _ is the form of rapid mass movement of earthy matters.</p>
+                <input type="radio" name="q3" value="a"> a) Solification<br>
+                <input type="radio" name="q3" value="b"> b) Creep<br>
+                <input type="radio" name="q3" value="c"> c) debris flow<br>
+                <input type="radio" name="q3" value="d"> d) Lahars<br>
+            </li>
+			
+			
+			<li>
+                <p>A fractal system is one that involves which of the following?</p>
+                <input type="radio" name="q4" value="a"> a) similarity in form at a wide range of scales<br>
+                <input type="radio" name="q4" value="b"> b) completely unrelated processes that interact to produce an event<br>
+                <input type="radio" name="q4" value="c"> c) closely related processes that interact to produce a larger event<br>
+                <input type="radio" name="q4" value="d"> d) All of above<br>
+            </li>
+			
+			
+			<li>
+                <p>A hazard is a situation where there is</p>
+                <input type="radio" name="q5" value="a"> a) Threat of natural calamity<br>
+                <input type="radio" name="q5" value="b"> b) Threat to property and lives from calamities<br>
+                <input type="radio" name="q5" value="c"> c) Threat for consequences of disaster<br>
+                <input type="radio" name="q5" value="d"> d) All of the above<br>
+            </li>
+			
+			
+			<li>
+                <p>A hazard:</p>
+                <input type="radio" name="q6" value="a"> a) is a potentially damaging physical event, phenomenon, or human activity<br>
+                <input type="radio" name="q6" value="b"> b) may cause the loss of life or injury, property damage,<br>
+                <input type="radio" name="q6" value="c"> c) may generate social and economic disruption or environmental degradation<br>
+                <input type="radio" name="q6" value="d"> d) all of the above<br>
+            </li>
+			
+			
+			<li>
+                <p>A stream with too much bed load will usually have what type of channel pattern?</p>
+                <input type="radio" name="q7" value="a"> a) straight<br>
+                <input type="radio" name="q7" value="b"> b) meandering<br>
+                <input type="radio" name="q7" value="c"> c) braided<br>
+                <input type="radio" name="q7" value="d"> d) dendritic<br>
+            </li>
+			
+			
+			<li>
+                <p>According to U. N. O. there were about ______ disasters per year between 1992 - 2000 in the world?</p>
+                <input type="radio" name="q8" value="a"> a) 100<br>
+                <input type="radio" name="q8" value="b"> b) 300<br>
+                <input type="radio" name="q8" value="c"> c) 500<br>
+                <input type="radio" name="q8" value="d"> d) 800<br>
+            </li>
+			
+			
+			<li>
+                <p>According to World Disasters Report of 2010, during 2000-09, 85% of affected people belonged to the?</p>
+                <input type="radio" name="q9" value="a"> a) Asia Pacific Region<br>
+                <input type="radio" name="q9" value="b"> b) African region<br>
+                <input type="radio" name="q9" value="c"> c) Japan region<br>
+                <input type="radio" name="q9" value="d"> d) Australian region<br>
+            </li>
+			
+			
+			<li>
+                <p>An active volcano Mauna Loa is located in:</p>
+                <input type="radio" name="q10" value="a"> a) Hawaii, USA<br>
+                <input type="radio" name="q10" value="b"> b) Brazil<br>
+                <input type="radio" name="q10" value="c"> c) Japan<br>
+                <input type="radio" name="q10" value="d"> d) None of the above<br>
+            </li>
+			
+			
+			<li>
+                <p>An effect that natural disasters can have on people affected by the event is an increased rate of</p>
+                <input type="radio" name="q11" value="a"> a) homicide<br>
+                <input type="radio" name="q11" value="b"> b) immigration<br>
+                <input type="radio" name="q11" value="c"> c) population growth<br>
+                <input type="radio" name="q11" value="d"> d) all of these<br>
+            </li>
+			
+			
+			<li>
+                <p>An example of Civil war is</p>
+                <input type="radio" name="q12" value="a"> a) Kargil war<br>
+                <input type="radio" name="q12" value="b"> b) World war I<br>
+                <input type="radio" name="q12" value="c"> c) Syrian war<br>
+                <input type="radio" name="q12" value="d"> d) None of the above<br>
+            </li>
+			
+			
+			<li>
+                <p>An example of natural disaster is :</p>
+                <input type="radio" name="q13" value="a"> a) Tsunami<br>
+                <input type="radio" name="q13" value="b"> b) Flood<br>
+                <input type="radio" name="q13" value="c"> c) Storm<br>
+                <input type="radio" name="q13" value="d"> d) All of these<br>
+            </li>
+			
+			
+			<li>
+                <p>An extreme natural phenomenon capable of causing disaster leading to loss of lives or damage to property is known as</p>
+                <input type="radio" name="q14" value="a"> a) Natural hazard<br>
+                <input type="radio" name="q14" value="b"> b) Hazard calculation<br>
+                <input type="radio" name="q14" value="c"> c) Desertification<br>
+                <input type="radio" name="q14" value="d"> d) None of the above<br>
+            </li>
+			
+			
+			<li>
+                <p>An important water contaminant is:</p>
+                <input type="radio" name="q15" value="a"> a) Heavy metals<br>
+                <input type="radio" name="q15" value="b"> b) Nitrogen oxides<br>
+                <input type="radio" name="q15" value="c"> c) Carbon monoxide<br>
+                <input type="radio" name="q15" value="d"> d) NO2 and SO2<br>
+            </li>
+			
+			
+			<li>
+                <p>Approximate range of earthquakes that occur each year is</p>
+                <input type="radio" name="q16" value="a"> a) hundreds<br>
+                <input type="radio" name="q16" value="b"> b) thousands<br>
+                <input type="radio" name="q16" value="c"> c) millions<br>
+                <input type="radio" name="q16" value="d"> d) billions<br>
+            </li>
+			
+			
+			<li>
+                <p>Approximately --------- % of earth’s surface is covered with water.</p>
+                <input type="radio" name="q17" value="a"> a) 80<br>
+                <input type="radio" name="q17" value="b"> b) 60<br>
+                <input type="radio" name="q17" value="c"> c) 55<br>
+                <input type="radio" name="q17" value="d"> d) 70<br>
+            </li>
+			
+			
+			<li>
+                <p>Area of Indian coastline which is vulnerable to storm surges, cyclones and tsunamis is?</p>
+                <input type="radio" name="q18" value="a"> a) 5700 Km<br>
+                <input type="radio" name="q18" value="b"> b) 3700km<br>
+                <input type="radio" name="q18" value="c"> c) 2700km<br>
+                <input type="radio" name="q18" value="d"> d) 4700km<br>
+            </li>
+			
+			
+			<li>
+                <p>Areas of cities that are subjected to significant natural hazards should be used for which of the following?</p>
+                <input type="radio" name="q19" value="a"> a) office buildings because they can withstand the effects of the hazard<br>
+                <input type="radio" name="q19" value="b"> b) inexpensive single-family houses<br>
+                <input type="radio" name="q19" value="c"> c) parks and golf courses<br>
+                <input type="radio" name="q19" value="d"> d) shopping malls<br>
+            </li>
+			
+			
+			<li>
+                <p>As the discharge in a stream increases, load usually</p>
+                <input type="radio" name="q20" value="a"> a) increases<br>
+                <input type="radio" name="q20" value="b"> b) stays the same<br>
+                <input type="radio" name="q20" value="c"> c) decreases<br>
+                <input type="radio" name="q20" value="d"> d) none of the above<br>
+            </li>
+			
+			
+			<li>
+                <p>Catastrophic natural disaster losses in developed countries involve which of the following?</p>
+                <input type="radio" name="q21" value="a"> a) large numbers of deaths<br>
+                <input type="radio" name="q21" value="b"> b) large financial costs to individuals and companies<br>
+                <input type="radio" name="q21" value="c"> c) primarily losses borne by insurance companies<br>
+                <input type="radio" name="q21" value="d"> d) large numbers of deaths and large financial costs<br>
+            </li>
+			
+			
+			<li>
+                <p>Channelization of streams is designed to reduce flooding by ___________.</p>
+                <input type="radio" name="q22" value="a"> a) Speeding the passage of floodwaters<br>
+                <input type="radio" name="q22" value="b"> b) Reducing bank erosion<br>
+                <input type="radio" name="q22" value="c"> c) Slowing down river velocity so as to reduce damage<br>
+                <input type="radio" name="q22" value="d"> d) increase the meandering of streams<br>
+            </li>
+			
+			
+			<li>
+                <p>Disaster at Chernobyl (USSR), Three Mile Island (USA), and Fukusima (JAPAN) are all related to:</p>
+                <input type="radio" name="q23" value="a"> a) Disaster caused by earthquake<br>
+                <input type="radio" name="q23" value="b"> b) Disaster caused by Tsunami<br>
+                <input type="radio" name="q23" value="c"> c) Nuclear disaster<br>
+                <input type="radio" name="q23" value="d"> d) Epidemic disaster<br>
+            </li>
+			
+			
+			<li>
+                <p>Disaster is an event arising out of</p>
+                <input type="radio" name="q24" value="a"> a) Result of hazard event<br>
+                <input type="radio" name="q24" value="b"> b) Causes of hazard event<br>
+                <input type="radio" name="q24" value="c"> c) Causes of disaster event<br>
+                <input type="radio" name="q24" value="d"> d) All of the above<br>
+            </li>
+			
+			
+			<li>
+                <p>Disasters can be categorized into various types on the basis of?</p>
+                <input type="radio" name="q25" value="a"> a) Its speed<br>
+                <input type="radio" name="q25" value="b"> b) Its previous history<br>
+                <input type="radio" name="q25" value="c"> c) Loss of property they result<br>
+                <input type="radio" name="q25" value="d"> d) Loss of human life they result<br>
+            </li>
+			
+			
+			<li>
+                <p>Downhill movement of earth is mainly caused by</p>
+                <input type="radio" name="q26" value="a"> a) Monsoon failure<br>
+                <input type="radio" name="q26" value="b"> b) rain<br>
+                <input type="radio" name="q26" value="c"> c) drought<br>
+                <input type="radio" name="q26" value="d"> d) pollution<br>
+            </li>
+			
+			
+			<li>
+                <p>Drought is often identified by sunny days and hot weather.</p>
+                <input type="radio" name="q27" value="a"> a) Meteorological drought<br>
+                <input type="radio" name="q27" value="b"> b) Hydrological drought<br>
+                <input type="radio" name="q27" value="c"> c) Agricultural drought<br>
+                <input type="radio" name="q27" value="d"> d) Socio-economic drought<br>
+            </li>
+			
+			
+			<li>
+                <p>Drought unequal distribution of food increased population and flooding are causes of</p>
+                <input type="radio" name="q28" value="a"> a) Typhoid<br>
+                <input type="radio" name="q28" value="b"> b) dengue fever<br>
+                <input type="radio" name="q28" value="c"> c) malaria<br>
+                <input type="radio" name="q28" value="d"> d) famine<br>
+            </li>
+			
+			
+			<li>
+                <p>Equator is a region of ------- pressure while poles are regions of ------- pressure</p>
+                <input type="radio" name="q29" value="a"> a) High, low<br>
+                <input type="radio" name="q29" value="b"> b) Low, high<br>
+                <input type="radio" name="q29" value="c"> c) Low, low<br>
+                <input type="radio" name="q29" value="d"> d) High, high<br>
+            </li>
+			
+			
+			<li>
+                <p>Etna volcano are located in</p>
+                <input type="radio" name="q30" value="a"> a) Japan<br>
+                <input type="radio" name="q30" value="b"> b) Italy<br>
+                <input type="radio" name="q30" value="c"> c) India<br>
+                <input type="radio" name="q30" value="d"> d) Iran<br>
+            </li>
+			
+			
+			<li>
+                <p>Example of anthropogenic hazards are:</p>
+                <input type="radio" name="q31" value="a"> a) Chemical explosion<br>
+                <input type="radio" name="q31" value="b"> b) Earthquake<br>
+                <input type="radio" name="q31" value="c"> c) Flood<br>
+                <input type="radio" name="q31" value="d"> d) Wild fire<br>
+            </li>
+			
+			
+			<li>
+                <p>Example of Civil War is:</p>
+                <input type="radio" name="q32" value="a"> a) Syrian War<br>
+                <input type="radio" name="q32" value="b"> b) World War I&II<br>
+                <input type="radio" name="q32" value="c"> c) Kargil War<br>
+                <input type="radio" name="q32" value="d"> d) Vietnam-US War<br>
+            </li>
+			
+			
+			<li>
+                <p>Flood can not occur due to</p>
+                <input type="radio" name="q33" value="a"> a) Cyclone<br>
+                <input type="radio" name="q33" value="b"> b) Tsunami<br>
+                <input type="radio" name="q33" value="c"> c) Heavy rain<br>
+                <input type="radio" name="q33" value="d"> d) Biological disaster<br>
+            </li>
+			
+			
+			<li>
+                <p>From the following, which one is the natural hazard?</p>
+                <input type="radio" name="q34" value="a"> a) Earthquake<br>
+                <input type="radio" name="q34" value="b"> b) Cyclone<br>
+                <input type="radio" name="q34" value="c"> c) Landslide<br>
+                <input type="radio" name="q34" value="d"> d) All the above<br>
+            </li>
+			
+			
+			<li>
+                <p>From where earth quake waves are generated?</p>
+                <input type="radio" name="q35" value="a"> a) Focus<br>
+                <input type="radio" name="q35" value="b"> b) Epicenter<br>
+                <input type="radio" name="q35" value="c"> c) Solid inner Core<br>
+                <input type="radio" name="q35" value="d"> d) None of these<br>
+            </li>
+			
+			
+			<li>
+                <p>Geologists consider the Earth to be 4.6 billion years old. If you counted to 4.6 billion by counting one number every second how long would it take?</p>
+                <input type="radio" name="q36" value="a"> a) 32 years<br>
+                <input type="radio" name="q36" value="b"> b) 146 years<br>
+                <input type="radio" name="q36" value="c"> c) 14,600 years<br>
+                <input type="radio" name="q36" value="d"> d) 1000 years<br>
+            </li>
+			
+			
+			<li>
+                <p>Hazards and Disasters are mainly classified as</p>
+                <input type="radio" name="q37" value="a"> a) Physical and chemical<br>
+                <input type="radio" name="q37" value="b"> b) Natural and Human induced<br>
+                <input type="radio" name="q37" value="c"> c) Physical and Human<br>
+                <input type="radio" name="q37" value="d"> d) Social and cultural<br>
+            </li>
+			
+			
+			<li>
+                <p>High vulnerability and high hazard are associated with</p>
+                <input type="radio" name="q38" value="a"> a) Low disaster risk<br>
+                <input type="radio" name="q38" value="b"> b) medium disaster risk<br>
+                <input type="radio" name="q38" value="c"> c) high disaster risk<br>
+                <input type="radio" name="q38" value="d"> d) None of the above<br>
+            </li>
+			
+			
+			<li>
+                <p>How many types of Hazards are there</p>
+                <input type="radio" name="q39" value="a"> a) 1<br>
+                <input type="radio" name="q39" value="b"> b) 2<br>
+                <input type="radio" name="q39" value="c"> c) 4<br>
+                <input type="radio" name="q39" value="d"> d) 5<br>
+            </li>
+			
+			
+			<li>
+                <p>Human induced hazards can be classified into</p>
+                <input type="radio" name="q40" value="a"> a) 2<br>
+                <input type="radio" name="q40" value="b"> b) 3<br>
+                <input type="radio" name="q40" value="c"> c) 5<br>
+                <input type="radio" name="q40" value="d"> d) 4<br>
+            </li>
+			
+			
+			<li>
+                <p>Hurricanes are common in</p>
+                <input type="radio" name="q41" value="a"> a) India<br>
+                <input type="radio" name="q41" value="b"> b) Bangladesh<br>
+                <input type="radio" name="q41" value="c"> c) USA<br>
+                <input type="radio" name="q41" value="d"> d) Australia<br>
+            </li>
+			
+			
+			<li>
+                <p>Hurricans cyclone are formed in</p>
+                <input type="radio" name="q42" value="a"> a) U.S.A<br>
+                <input type="radio" name="q42" value="b"> b) British Island<br>
+                <input type="radio" name="q42" value="c"> c) Japan<br>
+                <input type="radio" name="q42" value="d"> d) India<br>
+            </li>
+			
+			
+			<li>
+                <p>If a dam is removed, then upstream from the former dam the river responds by</p>
+                <input type="radio" name="q43" value="a"> a) downcutting (lowering its bed)<br>
+                <input type="radio" name="q43" value="b"> b) raising its bed<br>
+                <input type="radio" name="q43" value="c"> c) avulsion<br>
+                <input type="radio" name="q43" value="d"> d) becoming a braided stream<br>
+            </li>
+			
+			
+			<li>
+                <p>If the deficiency of a particular year’s rainfall exceeds 25% of normal it is termed as</p>
+                <input type="radio" name="q44" value="a"> a) Onset Of Drought<br>
+                <input type="radio" name="q44" value="b"> b) Moderate Drought<br>
+                <input type="radio" name="q44" value="c"> c) Severe Drought<br>
+                <input type="radio" name="q44" value="d"> d) none of the above<br>
+            </li>
+			
+			
+			<li>
+                <p>If the deficiency of a particular year’s rainfall more than 50 % of normal it is termed as</p>
+                <input type="radio" name="q45" value="a"> a) Onset Of Drought<br>
+                <input type="radio" name="q45" value="b"> b) Moderate Drought<br>
+                <input type="radio" name="q45" value="c"> c) Severe Drought<br>
+                <input type="radio" name="q45" value="d"> d) none of the above<br>
+            </li>
+			
+			
+			<li>
+                <p>If the seafloor is suddenly displaced upward, then what happens to the sea surface?</p>
+                <input type="radio" name="q46" value="a"> a) It will subside<br>
+                <input type="radio" name="q46" value="b"> b) It will remain unchanged<br>
+                <input type="radio" name="q46" value="c"> c) It will momentarily rise<br>
+                <input type="radio" name="q46" value="d"> d) Nothing will happen<br>
+            </li>
+			
+			
+			<li>
+                <p>In which date tsunami occurred in Indoneshia</p>
+                <input type="radio" name="q47" value="a"> a) 24 April<br>
+                <input type="radio" name="q47" value="b"> b) 26 March<br>
+                <input type="radio" name="q47" value="c"> c) 26 Dec<br>
+                <input type="radio" name="q47" value="d"> d) 27 Dec<br>
+            </li>
+			
+			
+			<li>
+                <p>In which earthquake, the stones on the roads of Shillong as said to have “vibrated like peas on a drum”?</p>
+                <input type="radio" name="q48" value="a"> a) Cachar Earthquake<br>
+                <input type="radio" name="q48" value="b"> b) Latur Earthquke<br>
+                <input type="radio" name="q48" value="c"> c) Great Earthquake of Assam<br>
+                <input type="radio" name="q48" value="d"> d) Bhuj Earthquake<br>
+            </li>
+			
+			
+			<li>
+                <p>In which year the violent explosion of the famous Volcano, Krakatoa in Indonesia, produced Tsunamis measuring 40 feet?</p>
+                <input type="radio" name="q49" value="a"> a) 1881<br>
+                <input type="radio" name="q49" value="b"> b) 1882<br>
+                <input type="radio" name="q49" value="c"> c) 1883<br>
+                <input type="radio" name="q49" value="d"> d) 1884<br>
+            </li>
+			
+			
+			<li>
+                <p>Increase in carbon dioxide in atmosphere causes</p>
+                <input type="radio" name="q50" value="a"> a) Rise in earth temperature<br>
+                <input type="radio" name="q50" value="b"> b) fall in earth temperature<br>
+                <input type="radio" name="q50" value="c"> c) Uniform earth temperature<br>
+                <input type="radio" name="q50" value="d"> d) increase in ultraviolet rays<br>
+            </li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+        </ol>
+        <button type="submit">Submit</button><br>
+        <button id="nextButton" type="button" onclick="redirectToNextPage()">Next</button>
+    </form>
+
+    <div id="result" style="display: none;">
+        <h1>Exam Result</h1>
+        <h1 id="score"></h1>
+    </div>
+
+    <script>
+        document.getElementById('examForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const answers = {
+			
+			
+			
+                q1: 'd',
+				q2: 'a',
+				q3: 'c',
+				q4: 'a',
+				q5: 'b',
+				q6: 'd',
+				q7: 'c',
+				q8: 'c',
+				q9: 'a',
+				q10: 'a',
+				q11: 'c',
+				q12: 'c',
+				q13: 'd',
+				q14: 'a',
+				q15: 'b',
+				q16: 'b',
+				q17: 'd',
+				q18: 'a',
+				q19: 'c',
+				q20: 'a',
+				q21: 'b',
+				q22: 'a',
+				q23: 'c',
+				q24: 'a',
+				q25: 'd',
+				q26: 'b',
+				q27: 'b',
+				q28: 'd',
+				q29: 'b',
+				q30: 'b',
+				q31: 'a',
+				q32: 'a',
+				q33: 'd',
+				q34: 'd',
+				q35: 'a',
+				q36: 'b',
+				q37: 'b',
+				q38: 'c',
+				q39: 'b',
+				q40: 'c',
+				q41: 'c',
+				q42: 'a',
+				q43: 'a',
+				q44: 'a',
+				q45: 'c',
+				q46: 'c',
+				q47: 'c',
+				q48: 'c',
+				q49: 'c',
+				q50: 'a'
+				
+				
+				
+            };
+
+            let score = 0;
+            for (let q in answers) {
+                const userAnswer = document.querySelector('input[name="' + q + '"]:checked');
+                const allRadioButtons = document.getElementsByName(q);
+
+                if (!userAnswer) {
+                    allRadioButtons.forEach(radio => {
+                        if (!radio.checked) {
+                            radio.style.background = 'blue';
+                        }
+                    });
+                } else {
+                    if (userAnswer.value === answers[q]) {
+                        userAnswer.setAttribute('data-wrong', 'false');
+                        score++;
+                    } else {
+                        userAnswer.setAttribute('data-wrong', 'true');
+                    }
+                }
+            }
+
+            const resultDisplay = document.getElementById('result');
+            const scoreDisplay = document.getElementById('score');
+            scoreDisplay.textContent = 'SCORE: ' + score + '/50'; // Change the denominator to match the total number of questions
+            resultDisplay.style.display = 'block';
+
+            // Check if the score is at least 30
+            if (score >= 30) {
+                // Display the Next button
+
+                document.getElementById('nextButton').style.display = 'block';
+            }
+        });
+
+        // Function to redirect to another page
+        function redirectToNextPage() {
+            // Redirect to another page
+            window.location.href = 'html.html.html'; // Change 'next_page.html' to the URL of the next page
+        }
+    </script>
+</body>
+</html>
